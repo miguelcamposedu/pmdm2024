@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     var abecedario = ['A', 'B', 'C', 'D',];
 
-    $('#first_name').val('Miguel');
+    $('#first_name').val('Juan');
     $('#last_name').val('Campos');
     $('#email').val('miguel@email.com');
     $('#sex').val('female');
