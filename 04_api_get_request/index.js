@@ -21,9 +21,11 @@ $(document).ready(function () {
             type: 'GET'
         }).done(function (resp) {
 
+            // Lo último es mostrar el modal
+            $('#modal-detail').show();
+
         });
 
-        $('#modal-detail').show();
     });
 
 });
