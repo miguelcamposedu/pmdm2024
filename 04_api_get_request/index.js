@@ -20,6 +20,8 @@ $(document).ready(function () {
             url: 'https://pokeapi.co/api/v2/pokemon/' + pokemonId,
             type: 'GET'
         }).done(function (resp) {
+            // Primero limpiamos el modal
+            $('#modal_nombre').html(resp.name);
 
             // Lo último es mostrar el modal
             $('#modal-detail').show();
