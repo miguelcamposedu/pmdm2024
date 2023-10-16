@@ -1,0 +1,11 @@
+<div class="card">
+  <div class="card-header">
+    <h4 class="card-title">Calculator</h4>
+  </div>
+  <div class="card-body">
+    <p>A: <input type="number" value="" [(ngModel)]="a" /></p>
+    <p>B: <input type="number" value="" [(ngModel)]="b" /></p>
+    <p><button (click)="getSum()" class="btn btn-primary btn-sm">Sumar</button></p>
+    <p>Result A+B = {{result}}</p>
+  </div>
+</div>

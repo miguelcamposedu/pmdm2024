@@ -1,0 +1,12 @@
+<div class="card">
+  <div class="card-header">
+    <h4 class="card-title">User Month Top</h4>
+  </div>
+  <div class="card-body">
+    <p><strong>Nombre: </strong> {{nombre}}</p>
+    <p><strong>Edad: </strong> {{edad}} años</p>
+    <p><strong>Sexo: </strong> {{getSexString()}} <img [src]="getSexIcon()" width="32px" /></p>
+    <input type="text" [value]="sexo" />
+    <p>{{1+1}}</p>
+  </div>
+</div>
