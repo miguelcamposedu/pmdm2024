@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-6">
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="male"
+        [(ngModel)]="sex">
+      <label class="form-check-label" for="flexRadioDefault1">
+        Male
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="female"
+        [(ngModel)]="sex">
+      <label class="form-check-label" for="flexRadioDefault2">
+        Female
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <p>{{sex}}</p>
+    </div>
+  </div>
+</div>
