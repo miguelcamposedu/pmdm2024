@@ -1,0 +1,35 @@
+<p>SALESIANOS DAM: Students</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#ID</th>
+      <th scope="col">Fullname</th>
+      <th scope="col">Age</th>
+      <th scope="col">Sex</th>
+      <th scope="col">Subjects</th>
+      <th scope="col">Application type</th>
+      <th scope="col">Paid</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of studentList">
+      <th scope="row">{{student.id}}</th>
+      <td>{{student.name}} {{student.lastname}}</td>
+      <td>{{student.age}} years old</td>
+      <td>{{student.sex}}</td>
+      <td>
+        <span *ngFor="let subject of student.subjects" class="badge text-bg-primary me-2">{{subject.name}}
+          ({{subject.hours}})</span>
+      </td>
+      <td>
+        <div class="progress" role="progressbar" aria-label="Default striped example" aria-valuenow="0"
+          aria-valuemin="0" aria-valuemax="100">
+          <div [class]="getProgressBarClasses(student)" [style]="'width: '+getProgressBar(student)+'%'">
+          </div>
+        </div>
+      </td>
+      <td>{{getPaidString(student)}}</td>
+    </tr>
+  </tbody>
+</table>
