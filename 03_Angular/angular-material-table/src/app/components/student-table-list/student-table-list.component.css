@@ -1,0 +1,11 @@
+table {
+  width: 100%;
+}
+
+.subject {
+  margin-right: 5px;
+  background-color: blue;
+  color: white;
+  padding: 5px;
+  border-radius: 20px;
+}

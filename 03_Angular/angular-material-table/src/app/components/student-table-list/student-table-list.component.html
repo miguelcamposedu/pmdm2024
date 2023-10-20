@@ -1,0 +1,39 @@
+<mat-checkbox class="example-margin" [(ngModel)]="checkColumnId" (change)="checkboxClicked()">ID</mat-checkbox>
+<mat-checkbox class="example-margin" [(ngModel)]="checkColumnName" (change)="checkboxClicked()">Name</mat-checkbox>
+<mat-checkbox class="example-margin" [(ngModel)]="checkColumnSurname"
+  (change)="checkboxClicked()">Surname</mat-checkbox>
+<mat-checkbox class="example-margin" [(ngModel)]="checkColumnSubjects"
+  (change)="checkboxClicked()">Subjects</mat-checkbox>
+
+
+<table mat-table [dataSource]="studentList" class="mat-elevation-z8">
+
+  <!-- ID Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let student"> {{student.id}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let student"> {{student.name}} </td>
+  </ng-container>
+
+  <!-- Last Name Column -->
+  <ng-container matColumnDef="lastname">
+    <th mat-header-cell *matHeaderCellDef> Surname </th>
+    <td mat-cell *matCellDef="let student"> {{student.lastname}} </td>
+  </ng-container>
+
+  <!-- Subjects Column -->
+  <ng-container matColumnDef="subjects">
+    <th mat-header-cell *matHeaderCellDef> Subjects </th>
+    <td mat-cell *matCellDef="let student"> <span class="subject"
+        *ngFor="let subject of student.subjects">{{subject.name}}</span> </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
