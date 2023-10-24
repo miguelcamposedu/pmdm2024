@@ -1,0 +1,37 @@
+<ng-template #pokemonModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="mb-3">
+        <label for="dateOfBirth">Date of birth</label>
+        <p>{{title}}</p>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia rerum eius praesentium accusantium. Blanditiis
+          nulla quos necessitatibus aspernatur voluptatibus soluta, ullam odio unde deleniti a ea, nihil laborum maxime
+          voluptas.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, ratione illum. At praesentium, ipsam
+          consequatur sequi doloribus natus delectus reprehenderit ullam animi voluptate, placeat facilis quibusdam
+          nulla sit esse unde.
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione aspernatur ipsa recusandae fuga inventore
+          repudiandae harum voluptate maxime ullam expedita nemo, quia omnis est aut rem velit reiciendis atque laborum!
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque molestiae eos ea aperiam laudantium!
+          Perferendis ipsa sed vitae sit, maiores earum quos ea et inventore explicabo delectus quas, itaque
+          repellendus.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia voluptas doloremque officiis magnam doloribus
+          praesentium aperiam, possimus dolores, corporis, minima magni quis eaque deleniti. Pariatur, ratione placeat.
+          Consectetur, ipsum ipsam?
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias, magni optio ab hic eos maiores? Aliquam
+          aliquid corporis quos, ratione a, quam asperiores adipisci possimus rerum incidunt laborum cum beatae?
+        </p>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+  </div>
+</ng-template>
+
+<button class="btn btn-lg btn-outline-primary" (click)="open(pokemonModal)">Launch demo modal</button>
