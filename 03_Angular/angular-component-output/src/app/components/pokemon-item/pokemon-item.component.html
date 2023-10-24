@@ -1,0 +1,9 @@
+<div class="card">
+  <img [src]="getPokemonImage()" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{pokemon.name}}</h5>
+    <p class="card-text">{{pokemon.url}}
+    </p>
+    <button class="btn btn-primary" (click)="viewPokemonDetail()">View detail</button>
+  </div>
+</div>
