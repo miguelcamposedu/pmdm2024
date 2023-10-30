@@ -1,0 +1,13 @@
+<p *ngFor="let character of characterList">{{character.name}}</p>
+
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item" *ngIf="showPreviousButton()" (click)="onPageClick(this.currentPage-1)"><a class="page-link"
+        href="#">Previous</a></li>
+    <li *ngFor="let page of numPages" [ngClass]="currentPage == page? 'page-item active' : 'page-item'"
+      (click)="onPageClick(page)"><a class="page-link" href="#">{{page}}</a></li>
+    <li class="page-item" *ngIf="showNextButton()" (click)="onPageClick(this.currentPage+1)"><a class="page-link"
+        href="#">Next</a></li>
+  </ul>
+</nav>
