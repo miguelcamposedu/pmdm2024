@@ -1,0 +1,3 @@
+<div class="row overflow-x-auto" id="movie-popular-row">
+  <app-movie-item *ngFor="let item of movieList" [movie]="item" (movieClick)="onMovieClick($event)"></app-movie-item>
+</div>

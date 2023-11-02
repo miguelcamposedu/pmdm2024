@@ -1,0 +1,28 @@
+<div class="row col-12">
+  <h1>Popular movies</h1>
+</div>
+
+<div class="row col-12">
+  <app-movie-popular-list (onMovieDetailClick)="onMoviePopularClick($event, content)"></app-movie-popular-list>
+</div>
+
+<div class="row col-12">
+  <h1>Top Rated movies</h1>
+</div>
+
+<div class="row col-12">
+  <app-movie-top-rated-list></app-movie-top-rated-list>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Movie Detail</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <h1>{{movieSelected?.title}}</h1>
+    <p>{{movieSelected?.popularity}}</p>
+  </div>
+  <div class="modal-footer">
+  </div>
+</ng-template>
