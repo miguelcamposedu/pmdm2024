@@ -1,7 +1,10 @@
 <div class="card" style="width: 18rem;">
   <img src="..." class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">{{movie?.title}}</h5>
+    <h5 class="card-title">{{movie.title}}
+      <circle-progress [percent]="movie.vote_average * 10" [radius]="100" [imageWidth]="10" [animation]="true"
+        [animationDuration]="300"></circle-progress>
+    </h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
       content.</p>
     <button class="btn btn-primary" (click)="detailClick()">View detail</button>

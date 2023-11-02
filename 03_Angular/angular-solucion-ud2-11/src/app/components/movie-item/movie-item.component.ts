@@ -8,7 +8,7 @@ import { MovieTopRated } from 'src/app/models/movie-top-rated.interface';
   styleUrls: ['./movie-item.component.css']
 })
 export class MovieItemComponent {
-  @Input() movie: MoviePopular | MovieTopRated | undefined;
+  @Input() movie!: MoviePopular | MovieTopRated;
   @Output() movieClick = new EventEmitter<number>();
 
   detailClick() {

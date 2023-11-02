@@ -10,6 +10,7 @@ import { MovieItemComponent } from './components/movie-item/movie-item.component
 import { MovieTopRatedListComponent } from './components/movie-top-rated-list/movie-top-rated-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PageNotFoundComponent } from './ui/page-not-found/page-not-found.component';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,17 @@ import { PageNotFoundComponent } from './ui/page-not-found/page-not-found.compon
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    NgCircleProgressModule.forRoot({
+      // set defaults here
+      radius: 100,
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 0,
+      outerStrokeColor: "#78C000",
+      innerStrokeColor: "#C7E596",
+      backgroundColor: "#000000",
+      animationDuration: 300,
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
