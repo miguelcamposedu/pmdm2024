@@ -1,0 +1,33 @@
+<div class="row mb-3">
+  <div class="col-3">
+    <label for="email" class="form-label">Email address</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      placeholder="Write your email"
+      [formControl]="emailControl"
+    />
+  </div>
+</div>
+
+<div class="row mb-3">
+  <div class="col-3">
+    <label for="password" class="form-label">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      placeholder=""
+      [formControl]="passwordControl"
+    />
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-3">
+    <button type="button" class="btn btn-primary" (click)="doLogin()">
+      Login
+    </button>
+  </div>
+</div>
