@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "chatqtp": {
+      "hosting": {
+        "chatqtp-firebase": [
+          "chatqtp"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "chatqtp"
+  }
+}

@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>NEW USER</h1>
+  <form (ngSubmit)="addUser()">
+    <p>name</p>
+    <input name="name" [(ngModel)]="name" />
+    <p>age</p>
+    <input name="age" [(ngModel)]="age" />
+    <button type="submit">Guardar</button>
+  </form>
+</div>
