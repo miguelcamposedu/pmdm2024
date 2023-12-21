@@ -14,9 +14,10 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getDatabase, provideDatabase } from '@angular/fire/database';
 import { UserNewComponent } from './components/user-new/user-new.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
-  declarations: [AppComponent, UserNewComponent],
+  declarations: [AppComponent, UserNewComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
