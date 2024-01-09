@@ -15,9 +15,10 @@ import { getDatabase, provideDatabase } from '@angular/fire/database';
 import { UserNewComponent } from './components/user-new/user-new.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './components/home/home.component';
+import { GoogleLoginComponent } from './components/google-login/google-login.component';
 
 @NgModule({
-  declarations: [AppComponent, UserNewComponent, HomeComponent],
+  declarations: [AppComponent, UserNewComponent, HomeComponent, GoogleLoginComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -1,0 +1,9 @@
+<p>
+  Auth!
+  <code>{{ (user | async)?.uid }}</code>
+  <button (click)="login()" *ngIf="showLoginButton">Log in with Google</button>
+  <button (click)="loginAnonymously()" *ngIf="showLoginButton">
+    Log in anonymously
+  </button>
+  <button (click)="logout()" *ngIf="showLogoutButton">Log out</button>
+</p>
