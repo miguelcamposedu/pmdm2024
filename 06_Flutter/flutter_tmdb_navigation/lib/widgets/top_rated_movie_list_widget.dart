@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_tmdb_navigation/pages/models/top_rated_movie_response/top_movie.dart';
 import 'package:flutter_tmdb_navigation/pages/models/top_rated_movie_response/top_rated_movie_response.dart';
 import 'package:flutter_tmdb_navigation/widgets/card_image_widget.dart';
@@ -41,6 +42,9 @@ class _TopRatedMovieListWidgetState extends State<TopRatedMovieListWidget> {
         'Top Rated Movies',
         style: TextStyle(fontSize: 20),
         textAlign: TextAlign.start,
+      ).animate().fade(duration: 1500.ms),
+      const SizedBox(
+        height: 10,
       ),
       FutureBuilder<TopRatedMovieResponse>(
         future: futureTopRatedMovie,
@@ -50,7 +54,7 @@ class _TopRatedMovieListWidgetState extends State<TopRatedMovieListWidget> {
               height: 300,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: snapshot.data!.totalResults,
+                itemCount: snapshot.data!.results!.length,
                 itemBuilder: (context, index) {
                   return CardImageWidget(
                       imageUrl: snapshot.data!.results![index].posterPath!);
