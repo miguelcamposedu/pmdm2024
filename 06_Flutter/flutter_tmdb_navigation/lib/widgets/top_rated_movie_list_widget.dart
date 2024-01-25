@@ -57,7 +57,9 @@ class _TopRatedMovieListWidgetState extends State<TopRatedMovieListWidget> {
                 itemCount: snapshot.data!.results!.length,
                 itemBuilder: (context, index) {
                   return CardImageWidget(
-                      imageUrl: snapshot.data!.results![index].posterPath!);
+                      movieId: snapshot.data!.results![index].id!,
+                      imageUrl: snapshot.data!.results![index].posterPath!,
+                      index: index);
                 },
               ),
             );
