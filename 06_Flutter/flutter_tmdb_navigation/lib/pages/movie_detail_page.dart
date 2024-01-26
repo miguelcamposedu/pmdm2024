@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tmdb_navigation/pages/models/movie_detail_response/movie_detail_response.dart';
+import 'package:flutter_tmdb_navigation/models/movie_detail_response/movie_detail_response.dart';
+import 'package:flutter_tmdb_navigation/models/movie_videos_response/movie_videos_response.dart';
+import 'package:flutter_tmdb_navigation/widgets/movie_trailers_list_widget.dart';
 import 'package:http/http.dart' as http;
 import 'package:transparent_image/transparent_image.dart';
 
@@ -41,25 +43,32 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
           future: futureMovie,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              return SizedBox(
-                height: 300,
-                child: Column(children: [
-                  Stack(
-                    children: [
-                      const Center(
-                        child: CircularProgressIndicator(),
-                      ),
-                      FadeInImage.memoryNetwork(
-                        placeholder: kTransparentImage,
-                        image:
-                            'https://image.tmdb.org/t/p/w500${snapshot.data!.posterPath}',
-                        width: double.infinity,
-                        height: 300,
-                        fit: BoxFit.cover,
-                      )
-                    ],
-                  )
-                ]),
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 300,
+                    child: Stack(
+                      children: [
+                        const Center(
+                          child: CircularProgressIndicator(),
+                        ),
+                        FadeInImage.memoryNetwork(
+                          placeholder: kTransparentImage,
+                          image:
+                              'https://image.tmdb.org/t/p/w500${snapshot.data!.backdropPath}',
+                          width: double.infinity,
+                          height: 300,
+                          fit: BoxFit.cover,
+                        )
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  MovieTrailersListWidget(movieId: snapshot.data!.id!)
+                ],
               );
             } else if (snapshot.hasError) {
               return Text('${snapshot.error}');

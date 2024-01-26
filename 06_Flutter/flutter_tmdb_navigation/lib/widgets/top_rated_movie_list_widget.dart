@@ -1,15 +1,12 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_tmdb_navigation/pages/models/top_rated_movie_response/top_movie.dart';
-import 'package:flutter_tmdb_navigation/pages/models/top_rated_movie_response/top_rated_movie_response.dart';
+import 'package:flutter_tmdb_navigation/models/top_rated_movie_response/top_rated_movie_response.dart';
 import 'package:flutter_tmdb_navigation/widgets/card_image_widget.dart';
 import 'package:http/http.dart' as http;
 
 Future<TopRatedMovieResponse> fetchTopRatedMovies() async {
   final response = await http.get(Uri.parse(
-      'https://api.themoviedb.org/3/movie/top_rated?api_key=433d2c486572afb242c6fe7c1ddc6771'));
+      'https://api.themoviedb.org/3/movie/popular?api_key=433d2c486572afb242c6fe7c1ddc6771'));
 
   if (response.statusCode == 200) {
     return TopRatedMovieResponse.fromJson(response.body);

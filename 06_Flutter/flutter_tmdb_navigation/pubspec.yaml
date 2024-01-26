@@ -1,10 +1,10 @@
 name: flutter_tmdb_navigation
 description: "A new Flutter project."
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
-  sdk: '>=3.2.3 <4.0.0'
+  sdk: ">=3.2.3 <4.0.0"
 
 dependencies:
   flutter:
@@ -12,6 +12,7 @@ dependencies:
   flutter_animate: ^4.4.0
   http: ^1.2.0
   transparent_image: ^2.0.1
+  youtube_player_flutter: ^8.1.2
 
 dev_dependencies:
   flutter_test:
