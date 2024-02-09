@@ -3,6 +3,7 @@ import 'package:flutter_bloc_movies/blocs/movies/movies_bloc.dart';
 import 'package:flutter_bloc_movies/repositories/movies/movie_repository.dart';
 import 'package:flutter_bloc_movies/repositories/movies/movie_repository_impl.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_bloc_movies/ui/widgets/card_image_widget.dart';
 
 class MoviesPage extends StatefulWidget {
   const MoviesPage({super.key});
@@ -13,21 +14,23 @@ class MoviesPage extends StatefulWidget {
 
 class _MoviesPageState extends State<MoviesPage> {
   late MovieRepository movieRepository;
+  late MoviesBloc _moviesBloc;
+  String title = 'Popular';
 
   @override
   void initState() {
-    super.initState();
     movieRepository = MovieRepositoryImpl();
+    _moviesBloc = MoviesBloc(movieRepository)..add(MovieFetchList('popular'));
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-        create: (context) =>
-            MoviesBloc(movieRepository)..add(MovieFetchList('popular')),
+    return BlocProvider.value(
+        value: _moviesBloc,
         child: Scaffold(
           appBar: AppBar(
-            title: const Text('Movies'),
+            title: Text(title),
             actions: [
               IconButton(
                   onPressed: () {
@@ -44,12 +47,13 @@ class _MoviesPageState extends State<MoviesPage> {
     return BlocBuilder<MoviesBloc, MoviesState>(
       builder: (context, state) {
         if (state is MovieFetchSuccess) {
-          return ListView.builder(
+          return GridView.builder(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2, childAspectRatio: 0.7, mainAxisSpacing: 5.0),
             itemCount: state.movieList.length,
             itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(state.movieList[index].originalTitle!),
-              );
+              final movie = state.movieList[index];
+              return CardImageWidget(movie: movie, index: index);
             },
           );
         } else if (state is MovieFetchError) {
@@ -71,26 +75,47 @@ class _MoviesPageState extends State<MoviesPage> {
             child: ListView(
               children: [
                 ListTile(
-                  title: const Text('Popular'),
+                  title: const Row(
+                    children: [
+                      Icon(Icons.movie),
+                      Text('Popular'),
+                    ],
+                  ),
                   onTap: () {
-                    BlocProvider.of<MoviesBloc>(context)
-                        .add(MovieFetchList('popular'));
+                    _moviesBloc.add(MovieFetchList('popular'));
+                    setState(() {
+                      title = 'Popular';
+                    });
                     Navigator.pop(context);
                   },
                 ),
                 ListTile(
-                  title: const Text('Top rated'),
+                  title: const Row(
+                    children: [
+                      Icon(Icons.arrow_upward),
+                      Text('Top rated'),
+                    ],
+                  ),
                   onTap: () {
-                    BlocProvider.of<MoviesBloc>(context)
-                        .add(MovieFetchList('top_rated'));
+                    _moviesBloc.add(MovieFetchList('top_rated'));
+                    setState(() {
+                      title = 'Top rated';
+                    });
                     Navigator.pop(context);
                   },
                 ),
                 ListTile(
-                  title: const Text('Latest'),
+                  title: const Row(
+                    children: [
+                      Icon(Icons.star),
+                      Text('Upcoming'),
+                    ],
+                  ),
                   onTap: () {
-                    BlocProvider.of<MoviesBloc>(context)
-                        .add(MovieFetchList('latest'));
+                    _moviesBloc.add(MovieFetchList('upcoming'));
+                    setState(() {
+                      title = 'Upcoming';
+                    });
                     Navigator.pop(context);
                   },
                 ),
