@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:flutter_bloc_movies/models/movie_popular_response/movie_popular_response.dart';
+import 'package:flutter_bloc_movies/models/response/movie_popular_response.dart';
 import 'package:flutter_bloc_movies/repositories/movies/movie_repository.dart';
 import 'package:meta/meta.dart';
 

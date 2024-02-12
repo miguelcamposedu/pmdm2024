@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_bloc_movies/models/movie_popular_response/movie_popular_response.dart';
+import 'package:flutter_bloc_movies/models/response/movie_popular_response.dart';
 import 'package:flutter_bloc_movies/ui/pages/movie_detail_page.dart';
 import 'package:transparent_image/transparent_image.dart';
 

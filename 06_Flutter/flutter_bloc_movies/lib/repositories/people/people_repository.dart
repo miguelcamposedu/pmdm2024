@@ -1,4 +1,4 @@
-import 'package:flutter_bloc_movies/models/people_popular_response/people_popular_response.dart';
+import 'package:flutter_bloc_movies/models/response/people_popular_response.dart';
 
 abstract class PeopleRepository {
   Future<List<People>> fetchPeoplePopular();

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc_movies/ui/pages/movies_page.dart';
+import 'package:flutter_bloc_movies/ui/pages/my_profile_page.dart';
 import 'package:flutter_bloc_movies/ui/pages/people_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,7 +16,8 @@ class _HomePageState extends State<HomePage> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     MoviesPage(),
-    PeoplePage()
+    PeoplePage(),
+    MyProfilePage(),
   ];
 
   void _onItemTapped(int index) {
@@ -39,6 +41,10 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.people),
             label: 'People',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.manage_accounts),
+            label: 'My profile',
           ),
         ],
         currentIndex: _selectedIndex,

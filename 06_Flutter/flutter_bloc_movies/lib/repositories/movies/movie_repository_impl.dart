@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter_bloc_movies/models/movie_popular_response/movie_popular_response.dart';
+import 'package:flutter_bloc_movies/models/response/movie_popular_response.dart';
 import 'package:flutter_bloc_movies/repositories/movies/movie_repository.dart';
 import 'package:http/http.dart';
 
