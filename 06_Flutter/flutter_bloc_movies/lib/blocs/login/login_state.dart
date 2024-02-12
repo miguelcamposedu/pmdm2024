@@ -5,6 +5,8 @@ sealed class LoginState {}
 
 final class LoginInitial extends LoginState {}
 
+final class DoLoginLoading extends LoginState {}
+
 final class DoLoginSuccess extends LoginState {
   final LoginResponse userLogin;
   DoLoginSuccess(this.userLogin);

@@ -49,15 +49,20 @@ class _MyProfilePageState extends State<MyProfilePage> {
           buildWhen: (context, state) {
             return state is LoginInitial ||
                 state is DoLoginSuccess ||
-                state is DoLoginError;
+                state is DoLoginError ||
+                state is DoLoginLoading ||
+                state is GetRequestTokenError;
           },
           builder: (context, state) {
             if (state is DoLoginSuccess) {
-              return Text('Login success');
+              return const Text('Login success');
             } else if (state is DoLoginError) {
-              return Text('Login error');
+              return const Text('Login error');
+            } else if (state is DoLoginLoading) {
+              return const Center(child: CircularProgressIndicator());
+            } else if (state is GetRequestTokenError) {
+              return ScaffoldMessenger(child: Text(state.errorMessage));
             }
-
             return Center(child: _buildLoginForm());
           },
           listenWhen: (context, state) {
@@ -101,6 +106,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
           ),
           TextFormField(
             controller: passTextController,
+            obscureText: true,
             decoration: const InputDecoration(
                 border: OutlineInputBorder(), labelText: 'Password'),
             validator: (value) {

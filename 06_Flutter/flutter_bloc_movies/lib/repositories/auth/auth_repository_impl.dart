@@ -16,7 +16,7 @@ class AuthRepositoryImpl extends AuthRepository {
           'https://api.themoviedb.org/3/authentication/token/validate_with_login'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
-        'Authorization: ':
+        'Authorization':
             'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0MzNkMmM0ODY1NzJhZmIyNDJjNmZlN2MxZGRjNjc3MSIsInN1YiI6IjVjYzZjYTBhMGUwYTI2NGVlZmVkYmQwZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Lr-_SOXieFdDd-0CNEqipNgfEviSHDP0uX1sm_H8bUI'
       },
       body: loginDto.toJson(),
@@ -34,7 +34,7 @@ class AuthRepositoryImpl extends AuthRepository {
       Uri.parse('https://api.themoviedb.org/3/authentication/token/new'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
-        'Authorization: ':
+        'Authorization':
             'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0MzNkMmM0ODY1NzJhZmIyNDJjNmZlN2MxZGRjNjc3MSIsInN1YiI6IjVjYzZjYTBhMGUwYTI2NGVlZmVkYmQwZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Lr-_SOXieFdDd-0CNEqipNgfEviSHDP0uX1sm_H8bUI'
       },
     );

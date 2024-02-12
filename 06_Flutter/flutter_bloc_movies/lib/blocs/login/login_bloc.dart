@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:flutter/physics.dart';
 import 'package:flutter_bloc_movies/models/dto/login_dto.dart';
 import 'package:flutter_bloc_movies/models/response/login_response.dart';
 import 'package:flutter_bloc_movies/repositories/auth/auth_repository.dart';
@@ -33,8 +34,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   }
 
   void _doLogin(DoLoginEvent event, Emitter<LoginState> emit) async {
+    emit(DoLoginLoading());
     final SharedPreferences prefs = await _prefs;
-    final String requestToken = prefs.getString('request_token')!;
+    final String requestToken = prefs.getString('request_token') ?? '';
 
     try {
       final LoginDto loginDto = LoginDto(
